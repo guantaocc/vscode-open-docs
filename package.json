@@ -1,0 +1,72 @@
+{
+    "name": "external-docs",
+    "displayName": "External docs",
+    "description": "快捷打开文档",
+    "version": "1.0.2",
+    "publisher": "guantaocc",
+    "author": {
+        "name": "guantaocc"
+    },
+    "license": "MIT",
+    "icon": "images/vscode-vue-docs.png",
+    "galleryBanner": {
+        "color": "#4fc08d",
+        "theme": "dark"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Titiaiev/vscode-vue-docs"
+    },
+    "homepage": "https://github.com/Titiaiev/vscode-open-docs/blob/master/README.md",
+    "bugs": {
+        "url": "https://github.com/Titiaiev/vscode-open-docs/issues"
+    },
+    "keywords": [
+        "documentation"
+    ],
+    "engines": {
+        "vscode": "^1.25.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.openExternalDocs"
+    ],
+    "main": "./extension",
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "docs configuration",
+            "properties": {
+                "ExternalDocs.lang": {
+                    "type": "string",
+                    "enum": [
+                        "en",
+                        "zh"
+                    ],
+                    "default": "",
+                    "description": "配置文档语言"
+                },
+                "ExternalDocs.links": {
+                    "type": "object",
+                    "default": "",
+                    "description": "配置文档目录"
+                }
+            }
+        },
+        "commands": [
+            {
+                "command": "extension.openExternalDocs",
+                "title": "Open External Docs"
+            }
+        ]
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "vscode": "^1.1.33"
+    }
+}
